@@ -1,0 +1,14 @@
+{
+  "C_Cpp.default.includePath": [
+    "./src/libc/include",
+    "./src/kernel/include"
+  ],
+  "files.associations": {
+    ".sequelizerc": "javascript",
+    ".stylelintrc": "json",
+    ".prettierrc": "json",
+    "*.tsx": "typescriptreact",
+    "string.h": "c",
+    "stddef.h": "c"
+  }
+}

@@ -1,0 +1,145 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /opt/cross/bin/i386-elf-gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/bin/ld: cannot find crt0.o: No such file or directory
+/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/bin/ld: cannot find -lc: No such file or directory
+collect2: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /opt/cross/bin/i386-elf-g++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/bin/ld: cannot find crt0.o: No such file or directory
+/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/bin/ld: cannot find -lstdc++: No such file or directory
+/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/bin/ld: cannot find -lm: No such file or directory
+/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/bin/ld: cannot find -lc: No such file or directory
+collect2: error: ld returned 1 exit status
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: /workspaces/NewOS/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2e237/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2e237.dir/build.make CMakeFiles/cmTC_2e237.dir/build
+gmake[1]: Entering directory '/workspaces/NewOS/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2e237.dir/CMakeCCompilerABI.c.obj
+/opt/cross/bin/i386-elf-gcc   -v -o CMakeFiles/cmTC_2e237.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
+Using built-in specs.
+COLLECT_GCC=/opt/cross/bin/i386-elf-gcc
+Target: i386-elf
+Configured with: ../gcc-13.2.0/configure --target=i386-elf --prefix=/opt/cross --disable-nls --enable-languages=c,c++ --without-headers
+Thread model: single
+Supported LTO compression algorithms: zlib
+gcc version 13.2.0 (GCC) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_2e237.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=i386' '-march=i386' '-dumpdir' 'CMakeFiles/cmTC_2e237.dir/'
+ /opt/cross/libexec/gcc/i386-elf/13.2.0/cc1 -quiet -v /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_2e237.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=i386 -march=i386 -version -o /tmp/cczCyXc3.s
+GNU C17 (GCC) version 13.2.0 (i386-elf)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version none
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/sys-include"
+ignoring nonexistent directory "/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /opt/cross/lib/gcc/i386-elf/13.2.0/include
+ /opt/cross/lib/gcc/i386-elf/13.2.0/include-fixed
+End of search list.
+Compiler executable checksum: 7111ab955a60661e3860c64dd5ab6d38
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_2e237.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=i386' '-march=i386' '-dumpdir' 'CMakeFiles/cmTC_2e237.dir/'
+ /opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/bin/as -o CMakeFiles/cmTC_2e237.dir/CMakeCCompilerABI.c.obj /tmp/cczCyXc3.s
+COMPILER_PATH=/opt/cross/libexec/gcc/i386-elf/13.2.0/:/opt/cross/libexec/gcc/i386-elf/13.2.0/:/opt/cross/libexec/gcc/i386-elf/:/opt/cross/lib/gcc/i386-elf/13.2.0/:/opt/cross/lib/gcc/i386-elf/:/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/bin/
+LIBRARY_PATH=/opt/cross/lib/gcc/i386-elf/13.2.0/:/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_2e237.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=i386' '-march=i386' '-dumpdir' 'CMakeFiles/cmTC_2e237.dir/CMakeCCompilerABI.c.'
+Linking C executable cmTC_2e237
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2e237.dir/link.txt --verbose=1
+/opt/cross/bin/i386-elf-gcc  -v CMakeFiles/cmTC_2e237.dir/CMakeCCompilerABI.c.obj -o cmTC_2e237 
+Using built-in specs.
+COLLECT_GCC=/opt/cross/bin/i386-elf-gcc
+COLLECT_LTO_WRAPPER=/opt/cross/libexec/gcc/i386-elf/13.2.0/lto-wrapper
+Target: i386-elf
+Configured with: ../gcc-13.2.0/configure --target=i386-elf --prefix=/opt/cross --disable-nls --enable-languages=c,c++ --without-headers
+Thread model: single
+Supported LTO compression algorithms: zlib
+gcc version 13.2.0 (GCC) 
+COMPILER_PATH=/opt/cross/libexec/gcc/i386-elf/13.2.0/:/opt/cross/libexec/gcc/i386-elf/13.2.0/:/opt/cross/libexec/gcc/i386-elf/:/opt/cross/lib/gcc/i386-elf/13.2.0/:/opt/cross/lib/gcc/i386-elf/:/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/bin/
+LIBRARY_PATH=/opt/cross/lib/gcc/i386-elf/13.2.0/:/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2e237' '-mtune=i386' '-march=i386' '-dumpdir' 'cmTC_2e237.'
+ /opt/cross/libexec/gcc/i386-elf/13.2.0/collect2 -plugin /opt/cross/libexec/gcc/i386-elf/13.2.0/liblto_plugin.so -plugin-opt=/opt/cross/libexec/gcc/i386-elf/13.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccbo8Y6Z.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -o cmTC_2e237 crt0.o /opt/cross/lib/gcc/i386-elf/13.2.0/crtbegin.o -L/opt/cross/lib/gcc/i386-elf/13.2.0 -L/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/lib CMakeFiles/cmTC_2e237.dir/CMakeCCompilerABI.c.obj -lgcc -lc -lgcc /opt/cross/lib/gcc/i386-elf/13.2.0/crtend.o
+/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/bin/ld: cannot find crt0.o: No such file or directory
+/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/bin/ld: cannot find -lc: No such file or directory
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_2e237.dir/build.make:99: cmTC_2e237] Error 1
+gmake[1]: Leaving directory '/workspaces/NewOS/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_2e237/fast] Error 2
+
+
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: /workspaces/NewOS/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_93b5b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_93b5b.dir/build.make CMakeFiles/cmTC_93b5b.dir/build
+gmake[1]: Entering directory '/workspaces/NewOS/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_93b5b.dir/CMakeCXXCompilerABI.cpp.obj
+/opt/cross/bin/i386-elf-g++   -v -o CMakeFiles/cmTC_93b5b.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+Using built-in specs.
+COLLECT_GCC=/opt/cross/bin/i386-elf-g++
+Target: i386-elf
+Configured with: ../gcc-13.2.0/configure --target=i386-elf --prefix=/opt/cross --disable-nls --enable-languages=c,c++ --without-headers
+Thread model: single
+Supported LTO compression algorithms: zlib
+gcc version 13.2.0 (GCC) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_93b5b.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=i386' '-march=i386' '-dumpdir' 'CMakeFiles/cmTC_93b5b.dir/'
+ /opt/cross/libexec/gcc/i386-elf/13.2.0/cc1plus -quiet -v /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_93b5b.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=i386 -march=i386 -version -o /tmp/ccjG4ASK.s
+GNU C++17 (GCC) version 13.2.0 (i386-elf)
+	compiled by GNU C version 11.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version none
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/include/c++/13.2.0"
+ignoring nonexistent directory "/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/include/c++/13.2.0/i386-elf"
+ignoring nonexistent directory "/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/include/c++/13.2.0/backward"
+ignoring nonexistent directory "/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/sys-include"
+ignoring nonexistent directory "/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /opt/cross/lib/gcc/i386-elf/13.2.0/include
+ /opt/cross/lib/gcc/i386-elf/13.2.0/include-fixed
+End of search list.
+Compiler executable checksum: d332065fa1087867260612fc5ce34bcc
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_93b5b.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=i386' '-march=i386' '-dumpdir' 'CMakeFiles/cmTC_93b5b.dir/'
+ /opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/bin/as -o CMakeFiles/cmTC_93b5b.dir/CMakeCXXCompilerABI.cpp.obj /tmp/ccjG4ASK.s
+COMPILER_PATH=/opt/cross/libexec/gcc/i386-elf/13.2.0/:/opt/cross/libexec/gcc/i386-elf/13.2.0/:/opt/cross/libexec/gcc/i386-elf/:/opt/cross/lib/gcc/i386-elf/13.2.0/:/opt/cross/lib/gcc/i386-elf/:/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/bin/
+LIBRARY_PATH=/opt/cross/lib/gcc/i386-elf/13.2.0/:/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_93b5b.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=i386' '-march=i386' '-dumpdir' 'CMakeFiles/cmTC_93b5b.dir/CMakeCXXCompilerABI.cpp.'
+Linking CXX executable cmTC_93b5b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_93b5b.dir/link.txt --verbose=1
+/opt/cross/bin/i386-elf-g++  -v CMakeFiles/cmTC_93b5b.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_93b5b 
+Using built-in specs.
+COLLECT_GCC=/opt/cross/bin/i386-elf-g++
+COLLECT_LTO_WRAPPER=/opt/cross/libexec/gcc/i386-elf/13.2.0/lto-wrapper
+Target: i386-elf
+Configured with: ../gcc-13.2.0/configure --target=i386-elf --prefix=/opt/cross --disable-nls --enable-languages=c,c++ --without-headers
+Thread model: single
+Supported LTO compression algorithms: zlib
+gcc version 13.2.0 (GCC) 
+COMPILER_PATH=/opt/cross/libexec/gcc/i386-elf/13.2.0/:/opt/cross/libexec/gcc/i386-elf/13.2.0/:/opt/cross/libexec/gcc/i386-elf/:/opt/cross/lib/gcc/i386-elf/13.2.0/:/opt/cross/lib/gcc/i386-elf/:/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/bin/
+LIBRARY_PATH=/opt/cross/lib/gcc/i386-elf/13.2.0/:/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_93b5b' '-mtune=i386' '-march=i386' '-dumpdir' 'cmTC_93b5b.'
+ /opt/cross/libexec/gcc/i386-elf/13.2.0/collect2 -plugin /opt/cross/libexec/gcc/i386-elf/13.2.0/liblto_plugin.so -plugin-opt=/opt/cross/libexec/gcc/i386-elf/13.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cc3vSTVw.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -o cmTC_93b5b crt0.o /opt/cross/lib/gcc/i386-elf/13.2.0/crtbegin.o -L/opt/cross/lib/gcc/i386-elf/13.2.0 -L/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/lib CMakeFiles/cmTC_93b5b.dir/CMakeCXXCompilerABI.cpp.obj -lstdc++ -lm -lgcc -lc -lgcc /opt/cross/lib/gcc/i386-elf/13.2.0/crtend.o
+/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/bin/ld: cannot find crt0.o: No such file or directory
+/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/bin/ld: cannot find -lstdc++: No such file or directory
+/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/bin/ld: cannot find -lm: No such file or directory
+/opt/cross/lib/gcc/i386-elf/13.2.0/../../../../i386-elf/bin/ld: cannot find -lc: No such file or directory
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_93b5b.dir/build.make:99: cmTC_93b5b] Error 1
+gmake[1]: Leaving directory '/workspaces/NewOS/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_93b5b/fast] Error 2
+
+
+
+
