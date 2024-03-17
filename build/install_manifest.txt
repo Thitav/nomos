@@ -1,6 +1,0 @@
-/workspaces/NewOS/build/sysroot/usr/lib/libc.a
-/workspaces/NewOS/build/sysroot/usr/include/stdio.h
-/workspaces/NewOS/build/sysroot/usr/include/stdlib.h
-/workspaces/NewOS/build/sysroot/usr/include/string.h
-/workspaces/NewOS/build/sysroot/usr/boot/kernel.kernel
-/workspaces/NewOS/build/sysroot/usr/include/vga.h

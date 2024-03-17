@@ -1,2 +1,0 @@
-/opt/cross/bin/i386-elf-ar qc libc.a CMakeFiles/libc.dir/stdio/printf.c.obj CMakeFiles/libc.dir/stdio/putchar.c.obj CMakeFiles/libc.dir/stdio/puts.c.obj CMakeFiles/libc.dir/stdlib/abort.c.obj CMakeFiles/libc.dir/string/memcmp.c.obj CMakeFiles/libc.dir/string/memcpy.c.obj CMakeFiles/libc.dir/string/memmove.c.obj CMakeFiles/libc.dir/string/memset.c.obj CMakeFiles/libc.dir/string/strlen.c.obj
-/opt/cross/bin/i386-elf-ranlib libc.a
