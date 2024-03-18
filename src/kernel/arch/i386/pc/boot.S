@@ -1,4 +1,4 @@
-# Declare constants for the multiboot header (multiboot 1)
+# Constants for the multiboot header (multiboot 1)
 .set ALIGN,    1<<0                       # Align loaded modules on page boundaries
 .set MEMINFO,  1<<1                       # Provide memory map
 .set VIDINFO,  1<<2                       # Provide video mode table
@@ -6,14 +6,26 @@
 .set MAGIC,    0x1BADB002                 # 'magic number' that lets bootloader find the header
 .set CHECKSUM, -(MAGIC + FLAGS)           # Checksum of the above to verify that this header is in fact the multiboot header
 
-# Declare a header as in the multiboot standard
+# Multiboot header
 .section .multiboot
-.align 4
-.long MAGIC
-.long FLAGS
-.long CHECKSUM
+magic:            # Magic fields (required)
+  .align 4
+  .long MAGIC
+  .long FLAGS
+  .long CHECKSUM
+address_ignored:  # Address fields (ignored since flags[16] is not set)
+  .long 0         # header
+  .long 0         # load
+  .long 0         # load end
+  .long 0         # bss end	
+  .long 0         # entry
+graphics:         # Graphics fields (required since flags[2] is set)
+  .long 0         # mode (0 for linear graphics or 1 for text)
+  .long 1024      # columns
+  .long 768       # lines
+  .long 24        # bits per pixel (RGB=3bytes=24bits)
 
-# Reserve a stack for the initial thread
+# Stack for the initial thread
 .section .bss
 .align 16
 stack_bottom:
