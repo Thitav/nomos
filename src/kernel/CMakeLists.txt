@@ -63,9 +63,8 @@ set_target_properties(kernel PROPERTIES LINK_FLAGS
   "-T ${CMAKE_CURRENT_LIST_DIR}/${PLATFORM_LAYOUT} -N ${ISA_LINKER_FLAGS} ${PLATFORM_LINKER_FLAGS}")
 set_target_properties(kernel PROPERTIES PUBLIC_HEADER "${HEADERS}")
 
-# Remove the "lib" prefix and add ".kernel" suffix
-set_target_properties(kernel PROPERTIES PREFIX "")
-set_target_properties(kernel PROPERTIES SUFFIX ".kernel")
+# Add ".bin" suffix
+set_target_properties(kernel PROPERTIES SUFFIX ".bin")
 
 install(TARGETS kernel
   RUNTIME DESTINATION "${CMAKE_INSTALL_PREFIX}/usr/boot"

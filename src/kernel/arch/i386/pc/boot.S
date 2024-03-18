@@ -1,9 +1,10 @@
-# Declare constants for the multiboot header
-.set ALIGN,    1<<0             # Align loaded modules on page boundaries
-.set MEMINFO,  1<<1             # Provide memory map
-.set FLAGS,    ALIGN | MEMINFO  # Multiboot 'flag' field
-.set MAGIC,    0x1BADB002       # 'magic number' that lets bootloader find the header
-.set CHECKSUM, -(MAGIC + FLAGS) # Checksum of the above to verify that this header is in fact the multiboot header
+# Declare constants for the multiboot header (multiboot 1)
+.set ALIGN,    1<<0                       # Align loaded modules on page boundaries
+.set MEMINFO,  1<<1                       # Provide memory map
+.set VIDINFO,  1<<2                       # Provide video mode table
+.set FLAGS,    ALIGN | MEMINFO | VIDINFO  # Multiboot 'flag' field
+.set MAGIC,    0x1BADB002                 # 'magic number' that lets bootloader find the header
+.set CHECKSUM, -(MAGIC + FLAGS)           # Checksum of the above to verify that this header is in fact the multiboot header
 
 # Declare a header as in the multiboot standard
 .section .multiboot

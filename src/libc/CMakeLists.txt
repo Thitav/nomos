@@ -26,8 +26,8 @@ file(GLOB HEADERS "include/*.h")
 # Set up environment
 add_library(libc STATIC ${SRCS})
 
-target_include_directories(libc PRIVATE include)
-set(CMAKE_C_FLAGS "${ISA_C_FLAGS} ${PLATFORM_C_FLAGS}")
+target_include_directories(libc PRIVATE include "../kernel/include")
+set(CMAKE_C_FLAGS "${ISA_C_FLAGS} ${PLATFORM_C_FLAGS} -D__is_libk")
 set(CMAKE_ASM-ATT_COMPILE_OBJECT 
   "<CMAKE_ASM-ATT_COMPILER> ${ISA_ASM_FLAGS} ${PLATFORM_ASM_FLAGS} -o <OBJECT> <SOURCE>")
 set_target_properties(libc PROPERTIES LINK_FLAGS 

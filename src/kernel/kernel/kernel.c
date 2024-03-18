@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <stdint.h>
+#include <string.h>
 #include <kernel/vga.h>
 
 static uint16_t *const VGA_MEMORY = (uint16_t *)0xB8000;
 
 void kernel_main(void)
 {
-  VGA_MEMORY[2] = ((uint16_t)'A' | (uint16_t)0x0F << 8);
-  // vga_init();
-  // putchar('t');
+  vga_init();
+  VGA_MEMORY[strlen("AAAA")] = 0x0F00 | 'H';
+  printf("Hello");
+  unsigned char *location = (unsigned char *)0xA0000 + 320 * 5 + 10;
+  *location = 0x0F00;
 }

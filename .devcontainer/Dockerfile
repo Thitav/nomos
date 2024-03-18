@@ -9,7 +9,8 @@ ENV PATH="$PREFIX/bin:$PATH"
 
 WORKDIR $PREFIX
 
-ARG APT_DEPS="build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo cmake qemu-system qemu-system-gui"
+ARG APT_DEPS="build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev \
+  texinfo cmake xorriso grub-common grub-pc-bin qemu-system qemu-system-gui"
 
 RUN apt-get update; \
   DEBIAN_FRONTEND=noninteractive \
