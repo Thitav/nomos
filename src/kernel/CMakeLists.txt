@@ -11,7 +11,7 @@ function(load_profile ISA PLATFORM)
 
   # Obtain sources for the ISA and platform
   file(GLOB ISA_SRCS "${ISA_PATH}/*.c" "${ISA_PATH}/*.S")
-  file(GLOB PLATFORM_SRCS "${PLATFORM_PATH}/*.c" "${PLATFORM_PATH}/*.S")
+  file(GLOB_RECURSE PLATFORM_SRCS "${PLATFORM_PATH}/*.c" "${PLATFORM_PATH}/*.S")
 
   # Control build order using FIRST_SRCS flag from platform flags
   foreach(I ${FIRST_SRCS})
@@ -40,7 +40,7 @@ endfunction(load_profile)
 
 load_profile("i386" "pc")
 
-file(GLOB GENERIC_SRCS "kernel/*.c")
+file(GLOB_RECURSE GENERIC_SRCS "kernel/*.c")
 file(GLOB_RECURSE HEADERS "include/*.h")
 
 # Set up environment

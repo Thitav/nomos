@@ -21,9 +21,9 @@ address_ignored:  # Address fields (ignored since flags[16] is not set)
   .long 0         # entry
 graphics:         # Graphics fields (required since flags[2] is set)
   .long 0         # mode (0 for linear graphics or 1 for text)
-  .long 1024      # columns
-  .long 768       # lines
-  .long 24        # bits per pixel (RGB=3bytes=24bits)
+  .long 320       # columns
+  .long 200       # lines
+  .long 8         # bits per pixel (VGA colors are defined using 8 bits)
 
 # Stack for the initial thread
 .section .bss
