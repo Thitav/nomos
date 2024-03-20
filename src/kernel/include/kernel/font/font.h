@@ -10,9 +10,9 @@ struct bitmap_font
 {
   uint8_t width, height; // max character width and height
   uint32_t nchars;       // number of characters in font
-  uint8_t *widths;       // width of each character
-  uint8_t *bitmap;       // bitmap of all characters
-  uint32_t *index;       // encoding to character index
+  const uint8_t *widths; // width of each character
+  const uint8_t *bitmap; // bitmap of all characters
+  const uint32_t *index; // encoding to character index
 };
 
 /// @{ defines to have human readable font files

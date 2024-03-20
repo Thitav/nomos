@@ -1,9 +1,19 @@
 #include <kernel/tty.h>
 
-void tty_setcursor(struct tty_terminal *terminal, uint32_t row, uint32_t column)
+void tty_cursorset_column(struct tty_terminal *terminal, uint32_t column)
 {
   terminal->cursor_x = column * terminal->font->width;
+}
+
+void tty_cursorset_row(struct tty_terminal *terminal, uint32_t row)
+{
   terminal->cursor_y = row * terminal->font->height;
+}
+
+void tty_cursorset(struct tty_terminal *terminal, uint32_t row, uint32_t column)
+{
+  tty_cursorset_row(terminal, row);
+  tty_cursorset_column(terminal, column);
 }
 
 void tty_putchar(struct tty_terminal *terminal, uint8_t ch)

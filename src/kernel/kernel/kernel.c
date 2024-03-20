@@ -6,14 +6,22 @@
 
 void kernel_main(void)
 {
-  struct vga_screen screen = {320, 200};
-  struct tty_terminal terminal = {VGA_COLOR_WHITE, VGA_COLOR_BLACK, 0, 0, &screen, &font_univga};
+  struct vga_screen screen = {.width = 320, .height = 200};
+  struct tty_terminal terminal = {
+      .color_fg = VGA_COLOR_LIGHT_BLUE,
+      .color_bg = VGA_COLOR_BLACK,
+      .cursor_x = 0,
+      .cursor_y = 200,
+      .screen = &screen,
+      .font = &font_univga};
 
   // for (uint32_t y = 0; y < screen.height; y++)
   //   for (uint32_t x = 0; x < screen.width; x++)
   //     vga_putpixel(&screen, x, y, VGA_COLOR_RED);
 
-  tty_setcursor(&terminal, 10, 0);
+  // tty_putchar(&terminal, 'A');
+
+  tty_setcursor(&terminal, 12, 0);
 
   char s[] = "Hello World!";
   for (uint32_t i = 0; i < strlen(s); i++)

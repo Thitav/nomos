@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <kernel/font/font.h>
 
-static uint16_t *const VGA_MEMORY = (uint16_t *)0xA0000;
+static uint8_t *const VGA_MEMORY = (uint8_t *)0xA0000;
 
 struct vga_screen
 {
