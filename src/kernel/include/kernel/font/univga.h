@@ -4,7 +4,7 @@
 // Created from bdf2c Version 4, (c) 2009, 2010 by Lutz Sammer
 //	License AGPLv3: GNU Affero General Public License version 3
 
-#include "font.h"
+#include <kernel/font/font.h>
 
 /// character bitmap for each encoding
 static const uint8_t __font_bitmap__[] = {

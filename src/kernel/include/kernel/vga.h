@@ -1,5 +1,5 @@
-#ifndef ARCH_I386_VGA_H
-#define ARCH_I386_VGA_H
+#ifndef _KERNEL_VGA_H
+#define _KERNEL_VGA_H
 
 #include <stdint.h>
 #include <kernel/font/font.h>
@@ -31,7 +31,8 @@ enum vga_color
 };
 
 void vga_putpixel(const struct vga_screen *screen, uint32_t pos_x, uint32_t pos_y, enum vga_color color);
-void vga_drawchar(const struct vga_screen *screen, const struct bitmap_font *font, uint8_t ch,
+void vga_fillrect(const struct vga_screen *screen, uint32_t width, uint32_t height, enum vga_color color);
+void vga_drawchar(const struct vga_screen *screen, const struct bitmap_font *font, char ch,
                   uint32_t pos_x, uint32_t pos_y, enum vga_color color_fg, enum vga_color color_bg);
 
 #endif

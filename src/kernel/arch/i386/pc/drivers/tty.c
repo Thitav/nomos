@@ -1,31 +1,38 @@
 #include <kernel/tty.h>
 
-void tty_cursorset_column(struct tty_terminal *terminal, uint32_t column)
+void tty_putchar(struct tty_terminal *terminal, char ch)
 {
-  terminal->cursor_x = column * terminal->font->width;
-}
+  if (ch == '\n')
+  {
+    terminal->cursor_x = 0;
+    terminal->cursor_y += terminal->font->height;
+    return;
+  }
 
-void tty_cursorset_row(struct tty_terminal *terminal, uint32_t row)
-{
-  terminal->cursor_y = row * terminal->font->height;
-}
-
-void tty_cursorset(struct tty_terminal *terminal, uint32_t row, uint32_t column)
-{
-  tty_cursorset_row(terminal, row);
-  tty_cursorset_column(terminal, column);
-}
-
-void tty_putchar(struct tty_terminal *terminal, uint8_t ch)
-{
   vga_drawchar(terminal->screen, terminal->font, ch, terminal->cursor_x, terminal->cursor_y, terminal->color_fg, terminal->color_bg);
+  terminal->cursor_x += terminal->font->width;
 
-  // if (++terminal->cursor_x == terminal->screen->width)
-  // {
-  // terminal.cursor_column = 0;
-  // if (++terminal.cursor_row == terminal.rows)
-  //{
-  //   terminal.cursor_row = 0;
-  // }
-  // }
+  if (terminal->cursor_x >= terminal->screen->width)
+  {
+    terminal->cursor_x = 0;
+    terminal->cursor_y += terminal->font->height;
+    if (terminal->cursor_y >= terminal->screen->height)
+    {
+      // Implement terminal scroll
+      terminal->cursor_y = terminal->font->height;
+    }
+  }
+}
+
+void tty_write(struct tty_terminal *terminal, const char *data, size_t size)
+{
+  for (size_t i = 0; i < size; i++)
+  {
+    tty_putchar(terminal, data[i]);
+  }
+}
+
+void tty_writestr(struct tty_terminal *terminal, const char *str)
+{
+  tty_write(terminal, str, strlen(str));
 }

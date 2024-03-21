@@ -1,3 +1,5 @@
+project(kernel LANGUAGES C ASM)
+
 set(ARCH_PATH "arch")
 
 function(load_profile ISA PLATFORM)
@@ -27,7 +29,7 @@ function(load_profile ISA PLATFORM)
   set(FIRST_SRCS ${TMP_FIRST_SRCS} PARENT_SCOPE)
   set(ISA_SRCS ${ISA_SRCS} PARENT_SCOPE)
   set(PLATFORM_SRCS ${PLATFORM_SRCS} PARENT_SCOPE)
-  set(PLATFORM_LAYOUT "${PLATFORM_PATH}/layout.ld" PARENT_SCOPE)
+  set(PLATFORM_LAYOUT "${CMAKE_CURRENT_LIST_DIR}/${PLATFORM_PATH}/layout.ld" PARENT_SCOPE)
  
   # Export specific flags
   set(ISA_C_FLAGS ${ISA_C_FLAGS} PARENT_SCOPE)
@@ -40,7 +42,7 @@ endfunction(load_profile)
 
 load_profile("i386" "pc")
 
-file(GLOB_RECURSE GENERIC_SRCS "kernel/*.c")
+file(GLOB_RECURSE GENERIC_SRCS "kernel/*.c" "kernel/*.S")
 file(GLOB_RECURSE HEADERS "include/*.h")
 
 # Set up environment
@@ -51,18 +53,16 @@ execute_process(COMMAND ${CMAKE_C_COMPILER} -print-file-name=crtbegin.o
   OUTPUT_VARIABLE CC_CRTBEGIN OUTPUT_STRIP_TRAILING_WHITESPACE)
 execute_process(COMMAND ${CMAKE_C_COMPILER} -print-file-name=crtend.o
   OUTPUT_VARIABLE CC_CRTEND OUTPUT_STRIP_TRAILING_WHITESPACE)
-target_link_libraries(kernel ${CC_CRTBEGIN} ${CC_CRTEND} libc)
+target_link_libraries(kernel ${CC_CRTBEGIN} ${CC_CRTEND} libk)
 
 target_include_directories(kernel PRIVATE "include" "../libc/include")
-set(CMAKE_C_FLAGS "${ISA_C_FLAGS} ${PLATFORM_C_FLAGS}")
-set(CMAKE_ASM-ATT_COMPILE_OBJECT
-  "<CMAKE_ASM-ATT_COMPILER> ${ISA_ASM_FLAGS} ${PLATFORM_ASM_FLAGS} -o <OBJECT> <SOURCE>")
-add_link_options("-T ${PLATFORM_LAYOUT}")
-add_link_options("-N ${ISA_LINKER_FLAGS} ${PLATFORM_LINKER_FLAGS}")
-set_target_properties(kernel PROPERTIES LINK_FLAGS 
-  "-T ${CMAKE_CURRENT_LIST_DIR}/${PLATFORM_LAYOUT} -N ${ISA_LINKER_FLAGS} ${PLATFORM_LINKER_FLAGS}")
-set_target_properties(kernel PROPERTIES PUBLIC_HEADER "${HEADERS}")
+target_compile_options(kernel PRIVATE $<$<COMPILE_LANGUAGE:C>:${ISA_C_FLAGS} ${PLATFORM_C_FLAGS}>)
+target_compile_options(kernel PRIVATE $<$<COMPILE_LANGUAGE:ASM>:${ISA_ASM_FLAGS} ${PLATFORM_ASM_FLAGS}>)
+# set(CMAKE_ASM-ATT_COMPILE_OBJECT
+#  "<CMAKE_ASM-ATT_COMPILER> ${ISA_ASM_FLAGS} ${PLATFORM_ASM_FLAGS} -o <OBJECT> <SOURCE>")
+target_link_options(kernel PRIVATE "-T" ${PLATFORM_LAYOUT} "-N" ${ISA_LINKER_FLAGS} ${PLATFORM_LINKER_FLAGS})
 
+set_target_properties(kernel PROPERTIES PUBLIC_HEADER ${HEADERS})
 # Add ".bin" suffix
 set_target_properties(kernel PROPERTIES SUFFIX ".bin")
 

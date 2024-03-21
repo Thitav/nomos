@@ -3,8 +3,9 @@
 
 #include <stddef.h>
 #include <stdint.h>
-#include "font/font.h"
-#include "vga.h"
+#include <string.h>
+#include <kernel/font/font.h>
+#include <kernel/vga.h>
 
 struct tty_terminal
 {
@@ -14,7 +15,8 @@ struct tty_terminal
   const struct bitmap_font *font;
 };
 
-void tty_setcursor(struct tty_terminal *terminal, uint32_t row, uint32_t column);
-void tty_putchar(struct tty_terminal *terminal, uint8_t ch);
+void tty_putchar(struct tty_terminal *terminal, char ch);
+void tty_write(struct tty_terminal *terminal, const char *data, size_t size);
+void tty_writestr(struct tty_terminal *terminal, const char *str);
 
 #endif
