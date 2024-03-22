@@ -43,6 +43,8 @@ _start:
 	call _init
 
 	# Transfer control to the main kernel
+  pushl %ebx # multiboot info struct pointer
+  pushl %eax # multiboot magic number
 	call kernel_main
 
 	# Hang if kernel_main unexpectedly returns

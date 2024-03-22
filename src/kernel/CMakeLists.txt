@@ -53,16 +53,15 @@ execute_process(COMMAND ${CMAKE_C_COMPILER} -print-file-name=crtbegin.o
   OUTPUT_VARIABLE CC_CRTBEGIN OUTPUT_STRIP_TRAILING_WHITESPACE)
 execute_process(COMMAND ${CMAKE_C_COMPILER} -print-file-name=crtend.o
   OUTPUT_VARIABLE CC_CRTEND OUTPUT_STRIP_TRAILING_WHITESPACE)
-target_link_libraries(kernel ${CC_CRTBEGIN} ${CC_CRTEND} libk)
 
 target_include_directories(kernel PRIVATE "include" "../libc/include")
+target_link_libraries(kernel ${CC_CRTBEGIN} ${CC_CRTEND} libk)
+
 target_compile_options(kernel PRIVATE $<$<COMPILE_LANGUAGE:C>:${ISA_C_FLAGS} ${PLATFORM_C_FLAGS}>)
 target_compile_options(kernel PRIVATE $<$<COMPILE_LANGUAGE:ASM>:${ISA_ASM_FLAGS} ${PLATFORM_ASM_FLAGS}>)
-# set(CMAKE_ASM-ATT_COMPILE_OBJECT
-#  "<CMAKE_ASM-ATT_COMPILER> ${ISA_ASM_FLAGS} ${PLATFORM_ASM_FLAGS} -o <OBJECT> <SOURCE>")
 target_link_options(kernel PRIVATE "-T" ${PLATFORM_LAYOUT} "-N" ${ISA_LINKER_FLAGS} ${PLATFORM_LINKER_FLAGS})
 
-set_target_properties(kernel PROPERTIES PUBLIC_HEADER ${HEADERS})
+set_target_properties(kernel PROPERTIES PUBLIC_HEADER "${HEADERS}")
 # Add ".bin" suffix
 set_target_properties(kernel PROPERTIES SUFFIX ".bin")
 

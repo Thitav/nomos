@@ -29,8 +29,10 @@ file(GLOB HEADERS "include/*.h")
 add_library(libc STATIC ${SRCS})
 add_library(libk STATIC ${SRCS})
   
-target_include_directories(libc PRIVATE "include" "../kernel/include")
+target_include_directories(libc PRIVATE "include")
 target_include_directories(libk PRIVATE "include" "../kernel/include")
+
+target_link_libraries(libk PRIVATE kernel)
 
 target_compile_options(libc PRIVATE $<$<COMPILE_LANGUAGE:C>:${ISA_C_FLAGS} ${PLATFORM_C_FLAGS}>)
 target_compile_options(libk PRIVATE $<$<COMPILE_LANGUAGE:C>:${ISA_C_FLAGS} ${PLATFORM_C_FLAGS} "-D__is_libk">)

@@ -1,10 +1,4 @@
-#ifndef FONT_UNIVGA_H
-#define FONT_UNIVGA_H
-
-// Created from bdf2c Version 4, (c) 2009, 2010 by Lutz Sammer
-//	License AGPLv3: GNU Affero General Public License version 3
-
-#include <kernel/font/font.h>
+#include <kernel/font.h>
 
 /// character bitmap for each encoding
 static const uint8_t __font_bitmap__[] = {
@@ -120640,5 +120634,3 @@ struct bitmap_font font_univga = {
     .index = __font_index__,
     .bitmap = __font_bitmap__,
 };
-
-#endif

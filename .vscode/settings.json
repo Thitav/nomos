@@ -11,6 +11,7 @@
     "stddef.h": "c",
     "stdint.h": "c",
     "font.h": "c",
-    "paging.h": "c"
+    "paging.h": "c",
+    "vga.h": "c"
   }
 }

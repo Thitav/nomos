@@ -2,7 +2,7 @@
 #define _KERNEL_VGA_H
 
 #include <stdint.h>
-#include <kernel/font/font.h>
+#include <kernel/font.h>
 
 static uint8_t *const VGA_MEMORY = (uint8_t *)0xA0000;
 

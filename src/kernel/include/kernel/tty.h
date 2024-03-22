@@ -4,8 +4,8 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <string.h>
-#include <kernel/font/font.h>
 #include <kernel/vga.h>
+#include <kernel/font.h>
 
 struct tty_terminal
 {

@@ -3,10 +3,17 @@
 #include <string.h>
 #include <kernel/tty.h>
 #include <kernel/paging.h>
-#include <kernel/font/univga.h>
+#include <kernel/font.h>
+#include <kernel/multiboot.h>
 
-void kernel_main(void)
+void kernel_main(uint32_t mb_magic, multiboot_info_t *mb_info)
 {
+  if (mb_magic != MULTIBOOT_BOOTLOADER_MAGIC)
+  {
+    // Should be kernel panic
+    return;
+  }
+
   page_directory_t identity_page_directory;
   page_table_t identity_page_table;
 
@@ -29,5 +36,10 @@ void kernel_main(void)
       .screen = &screen,
       .font = &font_univga};
 
-  tty_writestr(&terminal, "Hello from kernel! AAAABBBBCCCCDDDDEEEEFFFF\nGGGG");
+  tty_writestr(&terminal, "AAAA");
+
+  terminal.cursor_x = mb_info->framebuffer_width - (font_univga.width * 4);
+  terminal.cursor_y = mb_info->framebuffer_height;
+
+  tty_writestr(&terminal, "BBBB");
 }
