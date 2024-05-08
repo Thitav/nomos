@@ -1,5 +1,5 @@
-#ifndef _KERNEL_PAGING_H
-#define _KERNEL_PAGING_H
+#ifndef _PAGING_H
+#define _PAGING_H
 
 #include <stdint.h>
 

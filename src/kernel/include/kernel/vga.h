@@ -30,9 +30,10 @@ enum vga_color
   VGA_COLOR_WHITE = 15,
 };
 
-void vga_putpixel(const struct vga_screen *screen, uint32_t pos_x, uint32_t pos_y, enum vga_color color);
-void vga_fillrect(const struct vga_screen *screen, uint32_t width, uint32_t height, enum vga_color color);
-void vga_drawchar(const struct vga_screen *screen, const struct bitmap_font *font, char ch,
+void vga_init(uint32_t width, uint32_t height);
+void vga_putpixel(uint32_t pos_x, uint32_t pos_y, enum vga_color color);
+void vga_fillrect(uint32_t width, uint32_t height, enum vga_color color);
+void vga_drawchar(const struct bitmap_font *font, char ch,
                   uint32_t pos_x, uint32_t pos_y, enum vga_color color_fg, enum vga_color color_bg);
 
 #endif

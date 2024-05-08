@@ -2,8 +2,8 @@
 .set ALIGN,    1<<0                       # Align loaded modules on page boundaries
 .set MEMINFO,  1<<1                       # Provide memory map
 .set VIDINFO,  1<<2                       # Provide video mode table
-.set FLAGS,    ALIGN | MEMINFO | VIDINFO  # Multiboot 'flag' field
-.set MAGIC,    0x1BADB002                 # 'magic number' that lets bootloader find the header
+.set FLAGS,    ALIGN | MEMINFO | VIDINFO  # Multiboot flag field
+.set MAGIC,    0x1BADB002                 # Magic number that lets bootloader find the header
 .set CHECKSUM, -(MAGIC + FLAGS)           # Checksum of the above to verify that this header is in fact the multiboot header
 
 # Multiboot header
@@ -17,7 +17,7 @@ address_ignored:  # Address fields (ignored since flags[16] is not set)
   .long 0         # header
   .long 0         # load
   .long 0         # load end
-  .long 0         # bss end	
+  .long 0         # bss end
   .long 0         # entry
 graphics:         # Graphics fields (required since flags[2] is set)
   .long 0         # mode (0 for linear graphics or 1 for text)
@@ -27,9 +27,9 @@ graphics:         # Graphics fields (required since flags[2] is set)
 
 # Stack for the initial thread
 .section .bss
-.align 16
+.align 0x10
 stack_bottom:
-.skip 16384 # 16 KB
+.skip 0x4000 # 16 KB
 stack_top:
 
 # Kernel entry point
@@ -39,13 +39,17 @@ stack_top:
 _start:
 	movl $stack_top, %esp
 
+  pushl %ebx # multiboot info struct pointer
+  pushl %eax # multiboot magic number
+
 	# Call the global constructors
 	call _init
 
+  # Initialize crucial processor state
+  call prelude
+
 	# Transfer control to the main kernel
-  pushl %ebx # multiboot info struct pointer
-  pushl %eax # multiboot magic number
-	call kernel_main
+	call kernel_entry
 
 	# Hang if kernel_main unexpectedly returns
 	cli

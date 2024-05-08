@@ -10,13 +10,14 @@
 struct tty_terminal
 {
   uint8_t color_fg, color_bg;
+  uint32_t width, height;
   uint32_t cursor_x, cursor_y;
-  const struct vga_screen *screen;
   const struct bitmap_font *font;
 };
 
-void tty_putchar(struct tty_terminal *terminal, char ch);
-void tty_write(struct tty_terminal *terminal, const char *data, size_t size);
-void tty_writestr(struct tty_terminal *terminal, const char *str);
+void tty_init(uint32_t width, uint32_t height, enum vga_color color_fg, enum vga_color color_bg, const struct bitmap_font *font);
+void tty_putchar(char ch);
+void tty_write(const char *data, size_t size);
+void tty_writestr(const char *str);
 
 #endif

@@ -8,7 +8,7 @@ int putchar(int ic)
 {
 #if defined(__is_libk)
   char c = (char)ic;
-  // tty_write(&terminal, &c, sizeof(c));
+  tty_write(&c, sizeof(c));
 #else
   // TODO: Implement stdio and the write system call.
 #endif
